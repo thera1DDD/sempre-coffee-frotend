@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Меню</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="header header--compact">
+  <div class="topline">
+    <a href="index.html" class="back">← Категории</a>
+    <div class="crumbs muted">Главная / <span id="crumbCat">Категория</span></div>
+  </div>
+
+  <div class="catHero">
+    <div class="catHero__emoji" id="catEmoji">🍽️</div>
+    <div class="catHero__text">
+      <h1 id="catTitle" class="catHero__title">Категория</h1>
+      <p id="catDesc" class="muted"></p>
+      <div class="stats">
+        <span class="pill" id="statCount">0 позиций</span>
+        <span class="pill" id="statPrice">—</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <section class="paper">
+    <div class="paper__head paper__head--row">
+      <h2>Позиции</h2>
+      <div id="listMeta" class="muted"></div>
+    </div>
+
+    <div id="dishGrid" class="dishGrid"></div>
+    <div id="dishEmpty" class="empty muted" style="display:none">В этой категории пока нет блюд.</div>
+  </section>
+</main>
+
+<script src="data.js"></script>
+<script type="module" src="js/init.js"></script>
+</body>
+</html>
