@@ -1,6 +1,6 @@
 export const $ = (s)=> document.querySelector(s);
 export const safe = (v)=> String(v ?? "");
-export const fmt = (n)=> `${Math.round(Number(n)||0)} ₽`;
+export const fmt = (n)=> `${Math.round(Number(n)||0)} руб`;
 
 export function qp(key){
   return new URL(location.href).searchParams.get(key);

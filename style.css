@@ -213,7 +213,10 @@ p{ margin:0; }
   display:grid; place-items:center;
   font-size: 28px;
 }
-.dishCard__body{ flex:1; min-width:0; }
+.dishCard__body{
+  flex:1;
+  min-width:0; /* ✅ важно: чтобы текст и блоки не расширяли карточку */
+}
 .dishCard__name{
   font-weight: 900;
   font-size: 18px;
@@ -265,6 +268,7 @@ p{ margin:0; }
 .empty{
   padding: 16px 6px 6px;
 }
+
 /* ===== Pretty image frame ===== */
 .imgFrame{
   position: relative;
@@ -312,7 +316,7 @@ p{ margin:0; }
   border-radius: 16px;
 }
 
-/* category card body padding (если у тебя уже есть — можно оставить, но это красиво стыкуется) */
+/* category card body padding */
 .catCard{
   padding: 0;
 }
@@ -320,7 +324,7 @@ p{ margin:0; }
   padding: 12px 14px 14px;
 }
 
-/* dish layout tweaks (если у тебя dishCard уже есть — эти правила мягко улучшат) */
+/* dish layout tweaks */
 .dishCard{
   display:flex;
   gap: 12px;
@@ -329,3 +333,20 @@ p{ margin:0; }
 }
 .dishCard__body{ flex:1; min-width:0; }
 .dishCard__right{ min-width:110px; text-align:right; }
+
+/* ✅ FIX: мобильная адаптация (цена больше не уезжает вправо) */
+@media (max-width: 520px){
+  .dishCard{
+    flex-direction: column; /* цена и блоки идут вниз */
+  }
+
+  .dishCard__right{
+    min-width: 0;          /* убираем жёсткую ширину */
+    width: 100%;
+    text-align: left;      /* на мобилке лучше читается */
+    flex-direction: row;   /* цена и подпись в одну линию */
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+  }
+}
