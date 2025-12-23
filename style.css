@@ -350,3 +350,48 @@ p{ margin:0; }
     margin-top: 10px;
   }
 }
+
+
+/* ✅ Мобилка: всё помещается, цена остаётся справа */
+@media (max-width: 520px){
+
+  .dishCard{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;        /* остаёмся в одну строку */
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .dishCard__body{
+    flex: 1 1 auto;           /* занимает всё свободное место */
+    min-width: 0;             /* ✅ важно: чтобы текст НЕ раздвигал карточку */
+  }
+
+  .dishCard__right{
+    flex: 0 0 auto;
+    min-width: auto;          /* ✅ убираем жёсткий минимум */
+    width: auto;
+    margin-left: auto;        /* ✅ прижимаем к правому краю */
+    text-align: right;        /* ✅ цена справа */
+    white-space: nowrap;      /* ✅ цена не ломается на 2 строки */
+  }
+
+  /* если длинные чипы/ингредиенты толкают ширину — пусть переносятся */
+  .metaRow{ flex-wrap: wrap; }
+  .chip{ max-width: 100%; }
+}
+
+
+/* ✅ На совсем узких экранах (например iPhone SE), чтобы вообще не было выезда:
+   цена переносится НИЖЕ, но ОСТАЁТСЯ СПРАВА */
+@media (max-width: 360px){
+  .dishCard{ flex-wrap: wrap; }
+
+  .dishCard__right{
+    flex-basis: 100%;
+    display: flex;
+    justify-content: flex-end; /* ✅ всё равно справа */
+    margin-top: 8px;
+  }
+}
